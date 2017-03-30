@@ -1,0 +1,49 @@
+1) Mostrar los clientes y sus depositos ordenados de manera ascendente por la fecha del Deposito
+2) Mostrar los clientes (nombre), depositos (codigo,monto y fecha) y sucursal(estado y ciudad)
+ordenados por sucursales de manera ascendente y fecha del Deposito de manera descendente
+3) Mostrar que cuentas (numero) y su cliente(nombre) nunca ha tenido algun deposito realizado
+en la misma sucursal donde abrió dicha cuenta.
+4) Mostrar los clientes (nombre) y la cantidad de depositos que ha tenido en todas sus cuentas.
+5) Mostrar los clientes (nombre), cuenta (numero) y la cantidad de depositos que ha tenido dicha cuenta.
+6) Mostrar los clientes (nombre) y la suma de los depositos que ha tenido en todas sus cuentas.
+7) Mostrar los clientes (nombre), cuenta (numero) y la suma de los depositos que ha tenido dicha cuenta.
+8) Mostrar las cuentas que han sido aperturadas en el siglo 20
+9) Mostrar los clientes (nombre) y su ultimo Deposito recibido (codigo y fecha)
+10) Mostrar los clientes que no han reacibido algun deposito en el año 2006 (sin usar NOT IN ni subconsultas).
+11) Decir cuentos clientes hay por sucursal.
+12) Decir cual es el cliente (nombre) y cuantos depositos tiene el cliente que tiene la mayor
+cantidad de depositos en el sistema.
+13) Decir cuantos clientes tienen una cantidad depositada en total multipo de 6 pero no de 8.
+14) Decir que clientes (nombre) tienen una cantidad de depositos impar
+15) Mostrar los clientes(nombre) y sus ultimos 2 depositos(numero) de los clientes que tienen mas de 2 depositos
+16) Decir el nombre de los clientes (nombre) que tiene exactamente 1 deposito en cualquier sucursal en la
+que haya recibido un deposito.
+
+*****************************************************************************************************************
+17) El banco el cual ha sido modelado en la base de datos ha contratado a una contadora para que saque la contabilidad
+de todos los depositos que se han efectuado en toda la base de datos. Dicha contadora lo esta haciendo manualmente
+con una calculadora fx-85MS CASIO (esta recibiendo una buena paga por ello). Al finalizar la contabilizacion la contadora
+se da cuenta que a la calculador se le ha dañado la tecla 0. Se desea saber la diferencia entre lo que ha calculado
+la contadora y lo que de verdad dice la base de datos (verdad inmutable).
+
+Ejemplo tenemos los siguientes 5 depositos (solo los montos)
+
+10.002,00
+120.230.000,00
+3.403.400,00
+3.323.400,00
+34.000.122,00
+
+La suma de estos depositos da: 160.966.924,00
+
+Para esos montos la contadora ha sumado en realidad
+
+12,00
+1.223,00
+3.434,00
+33.234,00
+34.122,00
+
+Lo que da un total de 72.025,00
+
+Lo que se desea que usted diga es (160.966.924,00 - 72.025,00) = 160.894.899,00

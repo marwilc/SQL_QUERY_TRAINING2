@@ -1,0 +1,47 @@
+1) Listar los nombres de todas las tablas del esquema BANK
+2) Listar las tablas y sus campos claves del esquema BANK
+3) Listar las tablas que tienen al menos una clave foranea en el esquema BANK
+4) Listar las tablas que tengan al menos un restriccion tipo CHECK en el esquema BANK
+
+
+5) Decir cuantos distintos campos de las tablas del esquema BANK estan afectadas por alguna restriccion(clave foranea, clave primaria,check o indices)
+
+Ejemplo: la tabla deposito tiene una clave primaria de un campo(+1) tiene una restriccion en el campo monto(+1), tiene una clave foranea la cual
+afecta los campos estado y ciudad (+2) y tiene una clave foranea que afecta al campo cuenta(+1). Se creo un indice el cual afecta
+los campos estado y ciudad pero como estos ya fueron contados en la clave foranea, no se volveran a contar. Entonces la suma de los distintos
+campos de la tabla Deposito que tiene al menos una restriccion es 5 (se tiene que hacer lo mismo para cada tabla y sumarlas).
+
+CREATE TABLE Bank.Deposito(
+	Codigo		VARCHAR(20)		NOT NULL,
+	estado 		VARCHAR(30)		NOT NULL,
+	ciudad 		VARCHAR(30)		NOT NULL,
+	cuenta		VARCHAR(10)		NOT NULL,
+	monto		DECIMAL(28,10)	NOT NULL,
+	fecha		DATE			NOT NULL
+);
+
+ALTER TABLE Bank.Deposito ADD CONSTRAINT PK_Bank_Deposito PRIMARY KEY (codigo);
+ALTER TABLE Bank.Deposito ADD CONSTRAINT CK_Bank_Deposito_Montos_Positivos CHECK(monto > 0);
+ALTER TABLE Bank.Deposito ADD CONSTRAINT FK_Bank_Deposito_Sucursal FOREIGN KEY (estado,ciudad) REFERENCES bank.Sucursal(estado,ciudad);
+ALTER TABLE Bank.Deposito ADD CONSTRAINT FK_Bank_Deposito_Cuenta FOREIGN KEY(cuenta) REFERENCES bank.Cuenta(numero);
+CREATE INDEX IX_Deposito_Sucursal ON Bank.Deposito(estado,ciudad);
+
+SELECT *
+FROM Bank.Cuenta_Habiente;
+
+SELECT *
+FROM Bank.Cuenta_Habiente 
+WHERE nacimiento is null;
+
+SELECT *
+FROM 
+BAnk.Cuenta_Habiente 
+	JOIN Bank.Cuenta ON Bank.Cuenta_Habiente.cedula = Bank.Cuenta.cliente;
+
+SELECT 	CH.nombre,
+		C.apertura
+FROM Bank.cuenta_habiente AS CH
+	JOIN Bank.Cuenta  AS C ON CH.cedula = C.cliente;
+
+SELECT * 
+FROM Bank.cuenta_habiente;	
